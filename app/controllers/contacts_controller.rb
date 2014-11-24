@@ -1,4 +1,7 @@
 class ContactsController < ApplicationController
+  def home
+  end
+
   def index
     @contacts = Contact.all
   end
