@@ -1,0 +1,120 @@
+<!-- Simple full-width example-->
+
+<div class="page-header">
+  <h1>Contact #<%= @contact.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Firstname</dt>
+      <dd><%= @contact.firstname %></dd>
+
+      <dt>Lastname</dt>
+      <dd><%= @contact.lastname %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @contact.email %></dd>
+
+      <dt>Industry</dt>
+      <dd><%= @contact.industry_id %></dd>
+
+      <dt>Function</dt>
+      <dd><%= @contact.function_id %></dd>
+
+      <dt>Company</dt>
+      <dd><%= @contact.company_id %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @contact.location_id %></dd>
+
+      <dt>Job title</dt>
+      <dd><%= @contact.job_title %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @contact.notes %></dd>
+
+      <dt></dt>
+      <dd>
+        <div class="btn-group">
+          <a href="/contacts" class="btn btn-primary">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+
+          <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_contact/<%= @contact.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </dd>
+    </dl>
+
+  </div>
+</div>
+
+<!-- End simple full-width example-->
+
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact #<%= @contact.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Firstname</dt>
+              <dd><%= @contact.firstname %></dd>
+
+              <dt>Lastname</dt>
+              <dd><%= @contact.lastname %></dd>
+
+              <dt>Email</dt>
+              <dd><%= @contact.email %></dd>
+
+              <dt>Industry</dt>
+              <dd><%= @contact.industry_id %></dd>
+
+              <dt>Function</dt>
+              <dd><%= @contact.function_id %></dd>
+
+              <dt>Company</dt>
+              <dd><%= @contact.company_id %></dd>
+
+              <dt>Location</dt>
+              <dd><%= @contact.location_id %></dd>
+
+              <dt>Job title</dt>
+              <dd><%= @contact.job_title %></dd>
+
+              <dt>Notes</dt>
+              <dd><%= @contact.notes %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/contacts" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_contact/<%= @contact.id %>" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

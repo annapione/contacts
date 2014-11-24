@@ -1,0 +1,172 @@
+<div class="page-header">
+  <h1>
+    Contacts
+    <a href="/contacts/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+</div>
+
+<!-- Simple table layout example -->
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Industry</th>
+          <th>Function</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Job title</th>
+          <th>Notes</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.firstname %></td>
+            <td><%= contact.lastname %></td>
+            <td><%= contact.email %></td>
+            <td><%= contact.industry_id %></td>
+            <td><%= contact.function_id %></td>
+            <td><%= contact.company_id %></td>
+            <td><%= contact.location_id %></td>
+            <td><%= contact.job_title %></td>
+            <td><%= contact.notes %></td>
+            <td>
+              <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
+                <i class="fa fa-search-plus"></i>
+              </a>
+            </td>
+            <td>
+              <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
+            <td>
+              <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End simple table layout example -->
+
+<!-- Responsive, Isotope-based layout example -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" id="quicksearch" placeholder="Search Contacts (start typing)" class="form-control">
+  </div>
+</div>
+
+<hr>
+
+<div class="row isotope-container">
+<% @contacts.each do |contact| %>
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Contact #<%= contact.id %></h3>
+      </div>
+      <div class="panel-body">
+        <dl>
+          <dt>Firstname</dt>
+          <dd><%= contact.firstname %></dd>
+
+          <dt>Lastname</dt>
+          <dd><%= contact.lastname %></dd>
+
+          <dt>Email</dt>
+          <dd><%= contact.email %></dd>
+
+          <dt>Industry</dt>
+          <dd><%= contact.industry_id %></dd>
+
+          <dt>Function</dt>
+          <dd><%= contact.function_id %></dd>
+
+          <dt>Company</dt>
+          <dd><%= contact.company_id %></dd>
+
+          <dt>Location</dt>
+          <dd><%= contact.location_id %></dd>
+
+          <dt>Job title</dt>
+          <dd><%= contact.job_title %></dd>
+
+          <dt>Notes</dt>
+          <dd><%= contact.notes %></dd>
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/contacts/<%= contact.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+          <a href="/contacts/<%= contact.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_contact/<%= contact.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+
+<!-- JavaScript for Isotope layout and quicksearch -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+<script>
+  $(function() {
+    // quick search regex
+    var qsRegex;
+
+    // init Isotope
+    var $container = $('.isotope-container').isotope({
+      itemSelector: '.isotope-item',
+      layoutMode: 'masonry',
+      filter: function() {
+        return qsRegex ? $(this).text().match( qsRegex ) : true;
+      }
+    });
+
+    // use value of search field to filter
+    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
+      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+      $container.isotope();
+    }, 200 ) );
+
+  });
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce( fn, threshold ) {
+    var timeout;
+    return function debounced() {
+      if ( timeout ) {
+        clearTimeout( timeout );
+      }
+      function delayed() {
+        fn();
+        timeout = null;
+      }
+      timeout = setTimeout( delayed, threshold || 100 );
+    }
+  }
+</script>
+
+<!-- End responsive, Isotope-based layout example -->

@@ -1,0 +1,84 @@
+<!-- Simple full-width example-->
+
+<div class="page-header">
+  <h1>Company #<%= @company.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @company.name %></dd>
+
+      <dt>Industry</dt>
+      <dd><%= @company.industry_id %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @company.description %></dd>
+
+      <dt></dt>
+      <dd>
+        <div class="btn-group">
+          <a href="/companies" class="btn btn-primary">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+
+          <a href="/companies/<%= @company.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+
+          <a href="/delete_company/<%= @company.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </div>
+      </dd>
+    </dl>
+
+  </div>
+</div>
+
+<!-- End simple full-width example-->
+
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Company #<%= @company.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>Name</dt>
+              <dd><%= @company.name %></dd>
+
+              <dt>Industry</dt>
+              <dd><%= @company.industry_id %></dd>
+
+              <dt>Description</dt>
+              <dd><%= @company.description %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/companies" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <a href="/companies/<%= @company.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a href="/delete_company/<%= @company.id %>" class="btn btn-danger">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->

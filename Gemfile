@@ -37,3 +37,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+gem 'starter_generators', :git => "git://github.com/rbetina/starter_generators.git", :branch => "panels"
