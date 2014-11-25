@@ -1,5 +1,11 @@
 class ContactsController < ApplicationController
   def home
+    @contacts = Contact.all
+    @companies = Company.all
+    @company_recent = Company.order("created_at DESC").limit(5)
+    @location_recent = Location.order("created_at DESC").limit(5)
+    @event_recent = Event.order("created_at DESC").limit(5)
+
   end
 
   def index
