@@ -15,7 +15,8 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new
     @meeting.contact_id = params[:contact_id]
     @meeting.event_id = params[:event_id]
-    @meeting.date = params[:date]
+    @meeting.user_id = params[:user_id]
+
 
     if @meeting.save
       redirect_to "/meetings", :notice => "Meeting created successfully."
@@ -33,7 +34,7 @@ class MeetingsController < ApplicationController
 
     @meeting.contact_id = params[:contact_id]
     @meeting.event_id = params[:event_id]
-    @meeting.date = params[:date]
+    @meeting.user_id = params[:user_id]
 
     if @meeting.save
       redirect_to "/meetings", :notice => "Meeting updated successfully."

@@ -11,7 +11,7 @@
       <dd><%= @company.name %></dd>
 
       <dt>Industry</dt>
-      <dd><a href="/industries/<%=@company.industry_id%>"><%= Industry.find_by({:id => @company.industry_id }).name %></a></dd>
+      <dd><a href="/industries/<%=@company.industry_id%>"><%= @company.industry.name %></a></dd>
 
       <dt>Description</dt>
       <dd><%= @company.description %></dd>

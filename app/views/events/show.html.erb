@@ -8,13 +8,10 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><a href="/users/<%=@event.user_id%>"><%= User.find_by({:id => @event.user_id }).firstname %></a></dd>
+      <dd><a href="/users/<%=@event.user_id%>"><%= @event.user.firstname %></a></dd>
 
       <dt>Name</dt>
       <dd><%= @event.name %></dd>
-
-      <dt>Company</dt>
-      <dd><a href="/companies/<%=@event.company_id%>"><%= Company.find_by({:id => @event.company_id }).name %></a></dd>
 
       <dt>Location</dt>
       <dd><%= @event.location %></dd>
@@ -45,8 +42,3 @@
 
 <!-- End simple full-width example-->
 
-
-
-<%= debug @event.meetings %>
-<%= debug @event.contacts %>
-<%= debug @event.companies %>

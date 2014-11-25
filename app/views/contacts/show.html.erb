@@ -20,16 +20,16 @@
       <dd><%= @contact.email %></dd>
 
       <dt>Industry</dt>
-      <dd><a href="/industries/<%=@contact.industry_id%>"><%= Industry.find_by({:id => @contact.industry_id }).name %></a></dd>
+      <dd><a href="/industries/<%=@contact.company.industry_id%>"><%= @contact.company.industry.name %></a></dd>
 
       <dt>Function</dt>
-      <dd><a href="/functions/<%=@contact.function_id%>"><%= Function.find_by({:id => @contact.function_id }).name %></a></dd>
+      <dd><a href="/functions/<%=@contact.function_id%>"><%= @contact.function.name %></a></dd>
 
       <dt>Company</dt>
-      <dd><a href="/companies/<%=@contact.company_id%>"><%= Company.find_by({:id => @contact.company_id }).name %></a></dd>
+      <dd><a href="/companies/<%=@contact.company_id%>"><%= @contact.company.name %></a></dd>
 
       <dt>Location</dt>
-      <dd><a href="/locations/<%=@contact.location_id%>"><%= Location.find_by({:id => @contact.location_id }).city %></a></dd>
+      <dd><a href="/locations/<%=@contact.location_id%>"><%= @contact.location.city %></a></dd>
 
       <dt>Job title</dt>
       <dd><%= @contact.job_title %></dd>

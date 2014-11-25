@@ -28,11 +28,11 @@
       <tbody>
         <% @contacts.each do |contact| %>
           <tr>
-            <td><a href="/users/<%=contact.user_id%>"><%= User.find_by({:id => contact.user_id }).firstname %></a></td>
+            <td><a href="/users/<%=contact.user_id%>"><%= contact.user.firstname %></a></td>
             <td><%= contact.firstname %></td>
             <td><%= contact.lastname %></td>
-            <td><a href="/companies/<%=contact.company_id%>"><%= Company.find_by({:id => contact.company_id }).name %></a></td>
-            <td><a href="/locations/<%=contact.location_id%>"><%= Location.find_by({:id => contact.location_id }).city %></a></td>
+
+            <td><a href="/locations/<%=contact.location_id%>"><%= contact.location.city %></a></td>
             <td><%= contact.job_title %></td>
             <td><%= contact.notes %></td>
             <td>
@@ -59,54 +59,4 @@
 
 <!-- End simple table layout example -->
 
-<!-- Responsive, Isotope-based layout example -->
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Contacts (start typing)" class="form-control">
-  </div>
-</div>
-
-<hr>
-
-<!-- JavaScript for Isotope layout and quicksearch -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
-<script>
-  $(function() {
-    // quick search regex
-    var qsRegex;
-
-    // init Isotope
-    var $container = $('.isotope-container').isotope({
-      itemSelector: '.isotope-item',
-      layoutMode: 'masonry',
-      filter: function() {
-        return qsRegex ? $(this).text().match( qsRegex ) : true;
-      }
-    });
-
-    // use value of search field to filter
-    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
-      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-      $container.isotope();
-    }, 200 ) );
-
-  });
-
-  // debounce so filtering doesn't happen every millisecond
-  function debounce( fn, threshold ) {
-    var timeout;
-    return function debounced() {
-      if ( timeout ) {
-        clearTimeout( timeout );
-      }
-      function delayed() {
-        fn();
-        timeout = null;
-      }
-      timeout = setTimeout( delayed, threshold || 100 );
-    }
-  }
-</script>
-
-<!-- End responsive, Isotope-based layout example -->

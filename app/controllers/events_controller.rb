@@ -15,7 +15,6 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.user_id = params[:user_id]
     @event.name = params[:name]
-    @event.company_id = params[:company_id]
     @event.location = params[:location]
     @event.date = params[:date]
 
@@ -35,7 +34,6 @@ class EventsController < ApplicationController
 
     @event.user_id = params[:user_id]
     @event.name = params[:name]
-    @event.company_id = params[:company_id]
     @event.location = params[:location]
     @event.date = params[:date]
 

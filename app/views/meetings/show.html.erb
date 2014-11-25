@@ -8,11 +8,11 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Contact</dt>
-      <dd><a href="/contacts/<%=@meeting.contact_id%>"><%= Contact.find_by({:id => @meeting.contact_id }).firstname %> <%= Contact.find_by({:id => @meeting.contact_id }).lastname %></a></dd>
+      <dd><a href="/contacts/<%=@meeting.contact_id%>"><%= @meeting.contact.firstname %> <%= Contact.find_by({:id => @meeting.contact_id }).lastname %></a></dd>
 
 
       <dt>Event</dt>
-      <dd><a href="/events/<%=@meeting.event_id%>"><%= Event.find_by({:id => @meeting.event_id }).name %></a></dd>
+      <dd><a href="/events/<%=@meeting.event_id%>"><%= @meeting.event.name %></a></dd>
 
       <dt>Date</dt>
       <dd><%= @meeting.event.date.strftime("%m/%d/%Y") %></dd>
