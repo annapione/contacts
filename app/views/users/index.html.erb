@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Meetings
-    <a href="/meetings/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    Users
+    <a href="/users/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
@@ -12,11 +12,9 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Contact</th>
-          <th>Event</th>
-          <th>Company</th>
-          <th>Industry</th>
-          <th>Date</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
           <th></th>
           <th></th>
           <th></th>
@@ -24,27 +22,23 @@
       </thead>
 
       <tbody>
-        <% @meetings.each do |meeting| %>
+        <% @users.each do |user| %>
           <tr>
-            <td><a href="/contacts/<%=meeting.contact_id%>"><%= meeting.contact.firstname %>
-                <%= meeting.contact.lastname %></a>
-            </td>
-            <td><a href="/events/<%=meeting.event_id%>"><%= Event.find_by({:id => meeting.event_id }).name %></td>
-            <td><a href="/companies/<%=meeting.contact.company_id%>"><%= meeting.contact.company.name %></a></td>
-            <td><a href="/industries/<%=meeting.contact.company.industry_id%>"><%= meeting.contact.company.industry.name %></a></td>
-            <td><%= meeting.event.date.strftime("%m/%d/%Y") %></a></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.email %></td>
             <td>
-              <a href="/meetings/<%= meeting.id %>" class="btn btn-primary">
+              <a href="/users/<%= user.id %>" class="btn btn-primary">
                 <i class="fa fa-search-plus"></i>
               </a>
             </td>
             <td>
-              <a href="/meetings/<%= meeting.id %>/edit" class="btn btn-warning">
+              <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
               </a>
             </td>
             <td>
-              <a href="/delete_meeting/<%= meeting.id %>" class="btn btn-danger">
+              <a href="/delete_user/<%= user.id %>" class="btn btn-danger">
                 <i class="fa fa-trash-o"></i>
               </a>
             </td>
@@ -61,7 +55,7 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search Meetings (start typing)" class="form-control">
+    <input type="text" id="quicksearch" placeholder="Search Users (start typing)" class="form-control">
   </div>
 </div>
 

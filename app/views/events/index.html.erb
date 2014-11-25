@@ -26,9 +26,9 @@
         <% @events.each do |event| %>
           <tr>
             <td><%= event.name %></td>
-            <td><%= event.company_id %></td>
+            <td><a href="/companies/<%=event.company_id%>"><%= Company.find_by({:id => event.company_id }).name %></a></td>
             <td><%= event.location %></td>
-            <td><%= event.date %></td>
+            <td><%= event.date.strftime("%m/%d/%Y") %></td>
             <td>
               <a href="/events/<%= event.id %>" class="btn btn-primary">
                 <i class="fa fa-search-plus"></i>
@@ -62,48 +62,6 @@
 </div>
 
 <hr>
-
-<div class="row isotope-container">
-<% @events.each do |event| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Event #<%= event.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Name</dt>
-          <dd><%= event.name %></dd>
-
-          <dt>Company</dt>
-          <dd><%= event.company_id %></dd>
-
-          <dt>Location</dt>
-          <dd><%= event.location %></dd>
-
-          <dt>Date</dt>
-          <dd><%= event.date %></dd>
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/events/<%= event.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/events/<%= event.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_event/<%= event.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-</div>
-
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
 <script>

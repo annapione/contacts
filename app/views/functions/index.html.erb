@@ -57,37 +57,7 @@
 
 <hr>
 
-<div class="row isotope-container">
-<% @functions.each do |function| %>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Function #<%= function.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Name</dt>
-          <dd><%= function.name %></dd>
 
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/functions/<%= function.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/functions/<%= function.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_function/<%= function.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-</div>
 
 <!-- JavaScript for Isotope layout and quicksearch -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>

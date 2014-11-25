@@ -4,6 +4,7 @@ class CreateMeetings < ActiveRecord::Migration
       t.integer :contact_id
       t.integer :event_id
       t.datetime :date
+      t.integer :user_id
 
       t.timestamps
 

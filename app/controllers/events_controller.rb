@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new
+    @event.user_id = params[:user_id]
     @event.name = params[:name]
     @event.company_id = params[:company_id]
     @event.location = params[:location]
@@ -32,6 +33,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
+    @event.user_id = params[:user_id]
     @event.name = params[:name]
     @event.company_id = params[:company_id]
     @event.location = params[:location]

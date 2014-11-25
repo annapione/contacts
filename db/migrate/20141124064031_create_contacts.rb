@@ -10,6 +10,7 @@ class CreateContacts < ActiveRecord::Migration
       t.integer :location_id
       t.string :job_title
       t.string :notes
+      t.integer :user_id
 
       t.timestamps
 
