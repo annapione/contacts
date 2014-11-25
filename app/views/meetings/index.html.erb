@@ -29,7 +29,7 @@
             <td><a href="/contacts/<%=meeting.contact_id%>"><%= meeting.contact.firstname %>
                 <%= meeting.contact.lastname %></a>
             </td>
-            <td><a href="/events/<%=meeting.event_id%>"><%= Event.find_by({:id => meeting.event_id }).name %></td>
+            <td><a href="/events/<%=meeting.event_id%>"><%= meeting.event.name %></td>
             <td><a href="/companies/<%=meeting.contact.company_id%>"><%= meeting.contact.company.name %></a></td>
             <td><a href="/industries/<%=meeting.contact.company.industry_id%>"><%= meeting.contact.company.industry.name %></a></td>
             <td><%= meeting.event.date.strftime("%m/%d/%Y") %></a></td>
