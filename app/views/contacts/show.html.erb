@@ -34,8 +34,10 @@
       <dt>Job title</dt>
       <dd><%= @contact.job_title %></dd>
 
-      <dt>Notes</dt>
-      <dd><%= @contact.notes %></dd>
+      <% if @contact.notes.present?  %>
+        <dt>Notes</dt>
+        <dd><%= @contact.notes %></dd>
+      <% end  %>
 
       <dt></dt>
       <dd>

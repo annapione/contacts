@@ -7,5 +7,8 @@ class Meeting < ActiveRecord::Base
   has_many :indutries, :through => :contacts
   has_many :locations, :through => :contacts
 
+  validates :contact, :presence => true
+  validates :event, :presence => true
+  validates :user, :presence => true
 
 end

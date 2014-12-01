@@ -30,7 +30,7 @@
               Contact
             </label>
             <div class="col-sm-10">
-              <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @meeting.contact_id %>">
+              <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :fullname, :selected => @meeting.contact_id), :class => "form-control") %>
             </div>
           </div>
 
@@ -40,7 +40,7 @@
               Event
             </label>
             <div class="col-sm-10">
-              <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @meeting.event_id %>">
+              <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :name, :selected => @meeting.event_id), :class => "form-control") %>
             </div>
           </div>
 

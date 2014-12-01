@@ -5,4 +5,8 @@ class Company < ActiveRecord::Base
   has_many :functions, :through => :contacts
   has_many :locations, :through => :contacts
   has_many :events, :through => :meetings
+
+  validates :name, :presence => true
+  validates :industry, :presence => true
+
 end

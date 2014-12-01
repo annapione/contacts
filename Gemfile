@@ -39,3 +39,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'starter_generators', :git => "git://github.com/rbetina/starter_generators.git", :branch => "panels"
+gem 'devise'

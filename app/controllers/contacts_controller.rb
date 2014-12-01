@@ -32,6 +32,15 @@ class ContactsController < ApplicationController
     @contact.job_title = params[:job_title]
     @contact.notes = params[:notes]
 
+    # if params[:company_name]
+    #   @company = Company.new
+    #   @company.name = params[:company_name]
+    #   @company.save
+
+    #  @contact.company_id = @company.id
+    # end
+
+
     if @contact.save
       redirect_to "/contacts", :notice => "Contact created successfully."
     else

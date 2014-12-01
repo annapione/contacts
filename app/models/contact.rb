@@ -8,6 +8,15 @@ class Contact < ActiveRecord::Base
   has_many :industries, :through => :companies
   has_many :events, :through => :meetings
 
+  validates :user, :presence => true
+  validates :firstname, :presence => true
+  validates :lastname, :presence => true
+  validates :function, :presence => true
+  validates :company, :presence => true
+  validates :location, :presence => true
+
+
+
   def fullname
     return "#{self.firstname} #{self.lastname}"
   end

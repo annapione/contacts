@@ -4,4 +4,9 @@ class Event < ActiveRecord::Base
   has_many :contacts, :through => :meetings
   has_many :companies, :through => :contacts
 
+  validates :name, :presence => true
+  validates :user, :presence => true
+  validates :date, :presence => true
+
+
 end

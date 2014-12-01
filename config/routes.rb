@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Routes for the User resource:
   # CREATE
   get('/users/new', { :controller => 'users', :action => 'new' })
@@ -136,6 +137,7 @@ Rails.application.routes.draw do
   #------------------------------
 
   get('/', { :controller => 'contacts', :action => 'home' })
+  root 'contacts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
