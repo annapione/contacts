@@ -1,7 +1,7 @@
 <!-- Simple full-width example-->
 
 <div class="page-header">
-  <h1>Contact #<%= @contact.id %></h1>
+  <h1>Contact #<%= @contact.id %>: <%= @contact.fullname %></h1>
 </div>
 
 <div class="row">
@@ -38,6 +38,15 @@
         <dt>Notes</dt>
         <dd><%= @contact.notes %></dd>
       <% end  %>
+
+      <dt>Events</dt>
+          <dd>
+            <ul>
+              <% @contact.events.each do |event| %>
+                <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
+              <% end %>
+            </ul>
+          </dd>
 
       <dt></dt>
       <dd>

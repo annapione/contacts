@@ -1,7 +1,7 @@
 <!-- Simple full-width example-->
 
 <div class="page-header">
-  <h1>Company #<%= @company.id %></h1>
+  <h1>Company #<%= @company.id %>: <%= @company.name %></h1>
 </div>
 
 <div class="row">
@@ -15,6 +15,56 @@
 
       <dt>Description</dt>
       <dd><%= @company.description %></dd>
+
+
+    </dl>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+        <dt>Functions</dt>
+          <dd>
+            <ul>
+              <% @company.functions.each do |function| %>
+                <li><a href="/functions/<%=function.id%>"><%= function.name %></a></li>
+              <% end %>
+            </ul>
+          </dd>
+      </dl>
+    </div>
+
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+        <dt>Contacts</dt>
+          <dd>
+            <ul>
+              <% @company.contacts.each do |contact| %>
+                <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
+              <% end %>
+            </ul>
+          </dd>
+      </dl>
+    </div>
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+        <dt>Events</dt>
+          <dd>
+            <ul>
+              <% @company.events.each do |event| %>
+                <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
+              <% end %>
+            </ul>
+          </dd>
+      </dl>
+    </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
 
       <dt></dt>
       <dd>

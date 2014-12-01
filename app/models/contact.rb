@@ -15,9 +15,15 @@ class Contact < ActiveRecord::Base
   validates :company, :presence => true
   validates :location, :presence => true
 
-
+  def contactcount
+    return company.contact.count
+  end
 
   def fullname
     return "#{self.firstname} #{self.lastname}"
+  end
+
+  def fullnameandco
+    return "#{self.fullname} (#{self.company.name})"
   end
 end

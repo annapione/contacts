@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
     @company_recent = Company.order("created_at DESC").limit(5)
     @location_recent = Location.order("created_at DESC").limit(5)
     @event_recent = Event.order("created_at DESC").limit(5)
+    @company_contactcount = Company.order("contactcount DESC")
 
   end
 

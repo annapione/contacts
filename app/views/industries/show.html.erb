@@ -1,7 +1,7 @@
 <!-- Simple full-width example-->
 
 <div class="page-header">
-  <h1>Industry #<%= @industry.id %></h1>
+  <h1>Industry #<%= @industry.id %>: <%= @industry.name %></h1>
 </div>
 
 <div class="row">
@@ -9,16 +9,40 @@
     <dl class="dl-horizontal">
       <dt>Name</dt>
       <dd><%= @industry.name %></dd>
-
+    </dl>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
         <dt>Companies</dt>
           <dd>
             <ul>
-              <% Company.where({ :industry_id => @industry.id }).each do |company| %>
+              <% @industry.companies.each do |company| %>
                 <li><a href="/companies/<%=company.id%>"><%= company.name %></a></li>
               <% end %>
             </ul>
           </dd>
+      </dl>
+    </div>
 
+  <div class="col-md-4">
+    <dl class="dl-horizontal">
+        <dt>Contacts</dt>
+          <dd>
+            <ul>
+              <% @industry.contacts.each do |contact| %>
+                <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
+              <% end %>
+            </ul>
+          </dd>
+      </dl>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
       <dt></dt>
       <dd>
         <div class="btn-group">
