@@ -24,6 +24,10 @@
       </div>
       <div class="panel-body">
         <form action="/update_meeting/<%= @meeting.id %>" class="form-horizontal">
+          <!-- Label and input for user_id -->
+
+              <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
+
           <!-- Label and input for contact_id -->
           <div class="form-group">
             <label for="contact_id" class="col-sm-2 control-label">

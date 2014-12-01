@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   def index
+    ##@companies=Company.where({ :user_id => @current_user.id})
     @companies = Company.all
+
   end
 
   def show

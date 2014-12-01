@@ -27,14 +27,8 @@
         <form action="/update_contact/<%= @contact.id %>" class="form-horizontal">
 
           <!-- Label and input for user_id -->
-          <div class="form-group">
-            <label for="user_id" class="col-sm-2 control-label">
-              user
-            </label>
-            <div class="col-sm-10">
-              <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :firstname, :selected => @contact.user_id) , :class => "form-control") %>
-            </div>
-          </div>
+
+              <input type="hidden" id="user_id" name="user_id" class="form-control" value="<%= current_user.id %>">
 
           <!-- Label and input for firstname -->
           <div class="form-group">
