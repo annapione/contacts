@@ -18,7 +18,7 @@
         <dt>Companies</dt>
           <dd>
             <ul>
-              <% @industry.companies.each do |company| %>
+              <% @industry.companies.uniq.each do |company| %>
                 <li><a href="/companies/<%=company.id%>"><%= company.name %></a></li>
               <% end %>
             </ul>
@@ -31,7 +31,7 @@
         <dt>Contacts</dt>
           <dd>
             <ul>
-              <% @industry.contacts.each do |contact| %>
+              <% @industry.contacts.uniq.each do |contact| %>
                 <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
               <% end %>
             </ul>

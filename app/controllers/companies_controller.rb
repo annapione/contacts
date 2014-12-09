@@ -1,12 +1,14 @@
 class CompaniesController < ApplicationController
   def index
-    ##@companies=Company.where({ :user_id => @current_user.id})
+
     @companies = Company.all
 
   end
 
   def show
     @company = Company.find(params[:id])
+    @companycontacts = current_user.contacts.where({:company => @company.id })
+    @companyevents = current_user.events.where({:company => @company.id})
   end
 
   def new

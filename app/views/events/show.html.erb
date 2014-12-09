@@ -7,6 +7,7 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+    <dd><td><%= @event.user.firstname %></td></dd>
 
       <dt>Name</dt>
       <dd><%= @event.name %></dd>
@@ -27,7 +28,7 @@
         <dt>Contacts</dt>
           <dd>
             <ul>
-              <% @event.contacts.each do |contact| %>
+              <% @event.contacts.uniq.each do |contact| %>
                 <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
               <% end %>
             </ul>
@@ -40,7 +41,7 @@
         <dt>Companies</dt>
           <dd>
             <ul>
-              <% @event.companies.each do |company| %>
+              <% @event.companies.uniq.each do |company| %>
                 <li><a href="/companies/<%=company.id%>"><%= company.name %></a></li>
               <% end %>
             </ul>

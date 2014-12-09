@@ -19,7 +19,7 @@
         <dt>Contacts</dt>
           <dd>
             <ul>
-              <% @function.contacts.each do |contact| %>
+              <% @function.contacts.uniq.each do |contact| %>
                 <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
               <% end %>
             </ul>
@@ -32,7 +32,7 @@
         <dt>Companies</dt>
           <dd>
             <ul>
-              <% @function.companies.each do |company| %>
+              <% @function.companies.uniq.each do |company| %>
                 <li><a href="/companies/<%=company.id%>"><%= company.name %></a></li>
               <% end %>
             </ul>

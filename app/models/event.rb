@@ -8,5 +8,8 @@ class Event < ActiveRecord::Base
   validates :user, :presence => true
   validates :date, :presence => true
 
+  def contactcount
+    return self.contacts.count
+  end
 
 end

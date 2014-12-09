@@ -26,30 +26,37 @@
     <div class="row row-centered">
       <div class="col-md-2">
         Companies
+        <ul>
+          <% @company_contactcount.each do |company| %>
+            <li><a href="/companies/<%=@company_id%>"><%= company.name %></a></li>
+        <% end %>
+          </ul>
+      </div>
 
-        <ul>
-          <li><a  href="/companies/1" target="_blank">McKinsey</a></li>
-          <li><a  href="/companies/4" target="_blank">Bain</a></li>
-          <li><a  href="/companies/5" target="_blank">BCG</a></li>
-        </ul>
-      </div>
-      <div class="col-md-2">
+    <div class="col-md-2">
         Locations
-        <ul>
-          <li><a  href="/locations/1" target="_blank">New York</a></li>
-          <li><a  href="/locations/2" target="_blank">Chicago</a></li>
-          <li><a  href="/locations/3" target="_blank">San Francisco</a></li>
-        </ul>
+          <ul>
+          <% @location_contactcount.each do |location| %>
+            <li><a href="/locations/<%=@location_id%>"><%= location.city %></a></li>
+
+        <% end %>
+          </ul>
       </div>
+
       <div class="col-md-2">
         Events
-        <ul>
-          <li><a  href="/events/9" target="_blank">CNN</a></li>
-          <li><a  href="/events/6" target="_blank">Bain happy hour</a></li>
-          <li><a  href="/events/10" target="_blank">BCG dinner</a></li>
-        </ul>
+          <ul>
+          <% @event_contactcount.each do |event| %>
+            <li><a href="/events/<%=@levent_id%>"><%= event.name %></a></li>
+
+        <% end %>
+          </ul>
       </div>
-    </div>
+
+  </div>
+
+
+
 
     <div class="row">
       <h3> Recently Added</h3>

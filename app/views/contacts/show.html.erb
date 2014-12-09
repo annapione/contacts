@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-
+      <dd><td><%= @contact.user.firstname %></td></dd>
       <dt>First Name</dt>
       <dd><%= @contact.firstname %></dd>
 
@@ -40,7 +40,7 @@
       <dt>Events</dt>
           <dd>
             <ul>
-              <% @contact.events.each do |event| %>
+              <% @contact.events.uniq.each do |event| %>
                 <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
               <% end %>
             </ul>

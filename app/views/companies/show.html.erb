@@ -26,7 +26,7 @@
         <dt>Functions</dt>
           <dd>
             <ul>
-              <% @company.functions.each do |function| %>
+              <% @company.functions.uniq.each do |function| %>
                 <li><a href="/functions/<%=function.id%>"><%= function.name %></a></li>
               <% end %>
             </ul>
@@ -39,8 +39,8 @@
         <dt>Contacts</dt>
           <dd>
             <ul>
-              <% @company.contacts.each do |contact| %>
-                <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
+              <% @companycontacts.each do |contact| %>
+                <li><a href="#"><%= contact.fullname %></a></li>
               <% end %>
             </ul>
           </dd>
@@ -51,7 +51,7 @@
         <dt>Events</dt>
           <dd>
             <ul>
-              <% @company.events.each do |event| %>
+              <% @company.events.uniq.each do |event| %>
                 <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
               <% end %>
             </ul>
@@ -59,7 +59,9 @@
       </dl>
     </div>
 
+
 </div>
+
 
 <div class="row">
   <div class="col-md-12">

@@ -26,6 +26,8 @@
       <tbody>
         <% @meetings.each do |meeting| %>
           <tr>
+
+            <td><%= meeting.user.firstname %></td>
             <td><a href="/contacts/<%=meeting.contact_id%>"><%= meeting.contact.firstname %>
                 <%= meeting.contact.lastname %></a>
             </td>

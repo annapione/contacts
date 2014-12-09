@@ -3,10 +3,15 @@ class ContactsController < ApplicationController
 
     @contacts = current_user.contacts
     @companies = Company.all
+    @locations = Location.all
+    @events = current_user.events
+    @meetings = current_user.meetings
     @company_recent = Company.order("created_at DESC").limit(5)
     @location_recent = Location.order("created_at DESC").limit(5)
     @event_recent = Event.order("created_at DESC").limit(5)
-    @company_contactcount = Company.order("contactcount DESC")
+    @company_contactcount = @companies.sort_by{ |company| company.contactcount}.reverse
+    @location_contactcount = @locations.sort_by{ |location| location.contactcount}.reverse
+    @event_contactcount = @events.sort_by{ |event| event.contactcount}.reverse
 
   end
 

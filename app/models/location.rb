@@ -4,4 +4,8 @@ class Location < ActiveRecord::Base
 
   validates :city, :presence => true
 
+  def contactcount
+    return self.contacts.count
+  end
+
 end

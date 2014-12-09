@@ -9,4 +9,8 @@ class Company < ActiveRecord::Base
   validates :name, :presence => true
   validates :industry, :presence => true
 
+  def contactcount
+    return self.contacts.count
+  end
+
 end
