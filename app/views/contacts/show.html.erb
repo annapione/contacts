@@ -1,13 +1,13 @@
 <!-- Simple full-width example-->
 
 <div class="page-header">
-  <h1>Contact #<%= @contact.id %>: <%= @contact.fullname %></h1>
+  <h1>Contact<!--  #<%= @contact.id %> -->: <%= @contact.fullname %></h1>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dd><td><%= @contact.user.firstname %></td></dd>
+<!--       <dd><td><%= @contact.user.firstname %></td></dd> -->
       <dt>First Name</dt>
       <dd><%= @contact.firstname %></dd>
 
@@ -69,6 +69,37 @@
   </div>
 </div>
 
+
+  <dt>Map</dt>
+  <dd>
+   <!-- Code for Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+      var map;
+      function initialize() {
+
+        var myLatlng = new google.maps.LatLng(<%=@lat%>, <%=@lng%>);
+
+        var mapOptions = {
+          zoom: 10,
+          center: myLatlng
+        };
+
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+
+        var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              title: '<%= @contact.location.city %>'
+          });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <div id="map-canvas"></div>
+  </dd>
 <!-- End simple full-width example-->
 
 

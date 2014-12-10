@@ -1,6 +1,11 @@
 class MeetingsController < ApplicationController
   def index
     @meetings = current_user.meetings
+
+      respond_to do |format|
+        format.html
+        format.csv { render text: @meetings.to_csv }
+      end
   end
 
   def show

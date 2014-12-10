@@ -34,7 +34,7 @@
               Contact
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:contact_id, options_from_collection_for_select(Contact.all, :id, :fullname, :selected => @meeting.contact_id), :class => "form-control") %>
+              <%= select_tag(:contact_id, options_from_collection_for_select(current_user.contacts, :id, :fullnameandco, :selected => @meeting.contact_id), :class => "form-control") %>
             </div>
           </div>
 
@@ -44,7 +44,7 @@
               Event
             </label>
             <div class="col-sm-10">
-              <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :name, :selected => @meeting.event_id), :class => "form-control") %>
+              <%= select_tag(:event_id, options_from_collection_for_select(current_user.events, :id, :name, :selected => @meeting.event_id), :class => "form-control") %>
             </div>
           </div>
 

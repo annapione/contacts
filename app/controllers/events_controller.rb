@@ -1,7 +1,12 @@
 class EventsController < ApplicationController
   def index
-    @events = current_user.events
+    @events = current_user.events.order(:date)
     @meetings = current_user.meetings
+
+      respond_to do |format|
+        format.html
+        format.csv { render text: @events.to_csv }
+      end
   end
 
   def show
