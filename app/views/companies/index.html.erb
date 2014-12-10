@@ -15,9 +15,9 @@
           <th>Name</th>
           <th>Industry</th>
           <th>Description</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
@@ -26,7 +26,7 @@
           <tr>
             <td><%= company.name %></td>
 
-            <td><a href="/users/<%=company.industry_id%>"><%= company.industry.name %></a></td>
+            <td><a href="/industries/<%=company.industry_id%>"><%= company.industry.name %></a></td>
 
             <td><%= company.description %></td>
             <td>

@@ -15,16 +15,16 @@
           <th>Name</th>
           <th>Location</th>
           <th>Date</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
       <tbody>
         <% @events.each do |event| %>
           <tr>
-            <td><%= event.user.firstname %></td>
+<!--             <td><%= event.user.firstname %></td> -->
             <td><%= event.name %></td>
             <td><%= event.location %></td>
             <td><%= event.date.strftime("%m/%d/%Y") %></td>
@@ -50,5 +50,9 @@
   </div>
 </div>
 
+<p>
+  Download:
+  <%= link_to "CSV", events_path(format: "csv") %> <i class="fa fa-file-excel-o"></i>
+</p>
 <!-- End simple table layout example -->
 

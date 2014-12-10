@@ -18,16 +18,16 @@
           <th>Location</th>
           <th>Job title</th>
           <th>Notes</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
       <tbody>
         <% @contacts.each do |contact| %>
           <tr>
-            <td><%= contact.user.firstname %></td>
+<!--             <td><%= contact.user.firstname %></td> -->
             <td><%= contact.firstname %></td>
             <td><%= contact.lastname %></td>
             <td><a href="/companies/<%=contact.company_id%>"><%= contact.company.name %></a></td>

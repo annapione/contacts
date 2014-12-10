@@ -9,9 +9,12 @@ class ContactsController < ApplicationController
     @company_recent = Company.order("created_at DESC").limit(5)
     @location_recent = Location.order("created_at DESC").limit(5)
     @event_recent = Event.order("created_at DESC").limit(5)
-    @company_contactcount = @companies.sort_by{ |company| company.contactcount}.reverse
-    @location_contactcount = @locations.sort_by{ |location| location.contactcount}.reverse
-    @event_contactcount = @events.sort_by{ |event| event.contactcount}.reverse
+
+    @company_contactcount = @companies.sort_by{ |company| company.contactcount}.reverse.take(5)
+    @location_contactcount = @locations.sort_by{ |location| location.contactcount}.reverse.take(5)
+    @event_contactcount = @events.sort_by{ |event| event.contactcount}.reverse.take(5)
+
+
 
   end
 
@@ -21,7 +24,7 @@ class ContactsController < ApplicationController
   def index
 
 
-    @contacts = current_user.contacts.order(:id)
+    @contacts = current_user.contacts.order(:lastname)
       respond_to do |format|
         format.html
         format.csv { render text: @contacts.to_csv }
@@ -31,6 +34,17 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+
+    require 'open-uri'
+    require 'json'
+    require 'openssl'
+
+    @safe_url = URI.encode(@contact.location.city)
+    @url_we_want = "http://maps.googleapis.com/maps/api/geocode/json?address=#{@safe_url}"
+    @raw_data= open(@url_we_want).read
+    @parsed_data=JSON.parse(@raw_data)
+    @lat=@parsed_data["results"][0]["geometry"]["location"]["lat"]
+    @lng=@parsed_data["results"][0]["geometry"]["location"]["lng"]
   end
 
   def new

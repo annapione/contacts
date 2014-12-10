@@ -17,9 +17,9 @@
           <th>Company</th>
           <th>Industry</th>
           <th>Date</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </tr>
       </thead>
 
@@ -27,7 +27,7 @@
         <% @meetings.each do |meeting| %>
           <tr>
 
-            <td><%= meeting.user.firstname %></td>
+<!--             <td><%= meeting.user.firstname %></td> -->
             <td><a href="/contacts/<%=meeting.contact_id%>"><%= meeting.contact.firstname %>
                 <%= meeting.contact.lastname %></a>
             </td>
@@ -57,4 +57,8 @@
   </div>
 </div>
 
+<p>
+  Download:
+  <%= link_to "CSV", meetings_path(format: "csv") %> <i class="fa fa-file-excel-o"></i>
+</p>
 <!-- End simple table layout example -->
