@@ -56,6 +56,37 @@
   </div>
 </div>
 
+<p>
+  Download:
+  <%= link_to "CSV", contacts_path(format: "csv") %> <i class="fa fa-file-excel-o"></i>
+</p>
+
+<!-- <?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">First Name</Data></Cell>
+        <Cell><Data ss:Type="String">Release Date</Data></Cell>
+        <Cell><Data ss:Type="String">Price</Data></Cell>
+      </Row>
+    <% @contacts.each do |contact| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= contact.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.lastname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= contact.email %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook> -->
+
 <!-- End simple table layout example -->
 
 

@@ -29,7 +29,9 @@
           <dd>
             <ul>
               <% @event.contacts.uniq.each do |contact| %>
-                <li><a href="/contacts/<%=contact.id%>"><%= contact.fullname %></a></li>
+              <% if current_user.contacts.include?(contact) %>
+                <li><a href="/contacts/<%=contact.id%>"><%= contact.fullnameandco %></a></li>
+              <% end %>
               <% end %>
             </ul>
           </dd>

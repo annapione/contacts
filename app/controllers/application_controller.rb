@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  layout :layout
+
+
 
   protected
 
@@ -15,6 +18,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :avatar_url
 
     devise_parameter_sanitizer.for(:account_update) << :firstname
+  end
+
+  def layout
+    # only turn it off for login pages:
+    is_a?(Devise::SessionsController) ? false : "application"
+    # or turn layout off for every devise controller:
+    # if devise_controller?
+    #  return false
+    # else
+    #  return "application"
+    # end
   end
 
 end

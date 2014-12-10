@@ -137,6 +137,7 @@ Rails.application.routes.draw do
   get('/delete_contact/:id', { :controller => 'contacts', :action => 'destroy' })
   #------------------------------
 
+  get('/about', { :controller => 'contacts', :action => 'about'})
   get('/', { :controller => 'contacts', :action => 'home' })
   root 'contacts#index'
 

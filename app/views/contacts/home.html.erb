@@ -3,19 +3,30 @@
 
     <div class="page-header">
       <h1>
-        Contact Tracker
+        Contact Tracker.
       </h1>
+    <div class="align-right">
+    <div class="col-md-12">
+    <div class="col-md-9 text-right">
+      <h3>
+        <em>How do you connect?</em>
+      </h3>
+    </div>
+    </div>
+    </div>
     </div>
 
+
+
     <div class="row row-centered">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <a class="btn btn-primary btn-main" href="/contacts/new" target="_blank">Add a contact</a>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         <a class="btn btn-primary btn-main" href="/events/new" target="_blank">Add an event</a>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <a class="btn btn-primary btn-main" href="/events/new" target="_blank">Add a meeting</a>
       </div>
     </div>
@@ -24,30 +35,30 @@
       <h3> Most Popular</h3>
     </div>
     <div class="row row-centered">
-      <div class="col-md-2">
+      <div class="col-md-3">
         Companies
         <ul>
           <% @company_contactcount.each do |company| %>
-            <li><a href="/companies/<%=@company_id%>"><%= company.name %></a></li>
+            <li><a href="/companies/<%=company.id%>"><%= company.name %></a></li>
         <% end %>
           </ul>
       </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
         Locations
           <ul>
           <% @location_contactcount.each do |location| %>
-            <li><a href="/locations/<%=@location_id%>"><%= location.city %></a></li>
+            <li><a href="/locations/<%= location.id%>"><%= location.city %></a></li>
 
         <% end %>
           </ul>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         Events
           <ul>
           <% @event_contactcount.each do |event| %>
-            <li><a href="/events/<%=@levent_id%>"><%= event.name %></a></li>
+            <li><a href="/events/<%= event.id%>"><%= event.name %></a></li>
 
         <% end %>
           </ul>
@@ -62,30 +73,30 @@
       <h3> Recently Added</h3>
     </div>
     <div class="row row-centered">
-      <div class="col-md-2">
+      <div class="col-md-3">
         Companies
           <ul>
           <% @company_recent.each do |company| %>
-            <li><a href="/companies/<%=@company_id%>"><%= company.name %></a></li>
+            <li><a href="/companies/<%= company.id%>"><%= company.name %></a></li>
 
         <% end %>
           </ul>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
         Locations
           <ul>
           <% @location_recent.each do |location| %>
-            <li><a href="/locations/<%=@location_id%>"><%= location.city %></a></li>
+            <li><a href="/locations/<%= location.id%>"><%= location.city %></a></li>
 
         <% end %>
           </ul>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         Events
           <ul>
           <% @event_recent.each do |event| %>
-            <li><a href="/events/<%=@event_id%>"><%= event.name %></a></li>
+            <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
 
         <% end %>
           </ul>

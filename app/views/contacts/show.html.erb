@@ -41,7 +41,9 @@
           <dd>
             <ul>
               <% @contact.events.uniq.each do |event| %>
+              <% if current_user.events.include?(event) %>
                 <li><a href="/events/<%=event.id%>"><%= event.name %></a></li>
+              <% end %>
               <% end %>
             </ul>
           </dd>

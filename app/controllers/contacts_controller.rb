@@ -15,8 +15,17 @@ class ContactsController < ApplicationController
 
   end
 
+  def about
+  end
+
   def index
-    @contacts = current_user.contacts
+
+
+    @contacts = current_user.contacts.order(:id)
+      respond_to do |format|
+        format.html
+        format.csv { render text: @contacts.to_csv }
+    end
 
   end
 

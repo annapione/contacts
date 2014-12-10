@@ -1,26 +1,116 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contacts</title>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <style>
+    /* Only necessary if you are using navbar-fixed-top */
+    body {
+
+      font-family: "lato";
+    }
+
+    .landing {
+      position: relative;
+      overflow: hidden;
+      padding-left: 60px;
+      padding-bottom: 300px;
+
+    }
+    .landing h1 {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing img{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0.25;
+    }
+
+/*    .form-color[type="text"], textarea {
+      color: white;
+    }
+
+    .not-opaque {
+      opacity: 1.0;*/
+    }
+
+ /*   .top-row {
+      background-color: grey;
+      color: white;
+      margin: 0 auto;
+      width: 100%;
+
+      left: 0;
+    }*/
+
+    input, select, textarea {
+      background-color: white;
+}
+
+  </style>
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body>
+
+    <div class="landing row-row-centered">
+    <div class="top-row">
+     <h1>Contact Tracker. <em>How do you connect?</em></h1>
     </div>
-  <% end -%>
+     <img src="/networking2.jpg">
+    <div class="not-opaque">
+    <h2>Log in</h2>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-color">
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+
+    </div>
+    </div>
+</body>
+</html>
+
+
